@@ -29,8 +29,14 @@ class linkedlist{
 	}
 	
 	bool search(int value){
-		
-		return false;
+		node *temp = new node;
+		temp=head;
+		//walk the list until hit end or find val
+		while(temp->data!=value&&temp!=NULL){
+			temp=temp->next;
+		}
+		if(temp!=NULL) return true;
+		else return false;
 	}
 	
 	void remove(int value){
