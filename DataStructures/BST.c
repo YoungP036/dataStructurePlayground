@@ -21,6 +21,7 @@ int insert(node* root, int value);
 int search(int value);
 void print_all();
 int isLeaf(node* p);
+
 int main(){
 	head=new_node(17);
 	print_count();
@@ -58,15 +59,13 @@ int insert(node *root,int value){
 		root=new_node(value);
 	else{
 		int is_left=0;
-		int r=0;
 		node* p = root;
 		node* prev = NULL;
 	
+		//walk the tree until p is null, at that point use prev's ref to it and proceed
 		while(p!=NULL){
-			// r=compare(value,p->info);
 			prev=p;
-			if(value<p->info){
-			// if(r<0){
+			if(value < p->info){
 				is_left=1;
 				p=p->left;
 			}
@@ -75,6 +74,7 @@ int insert(node *root,int value){
 				p=p->right;
 			}
 		}//end while
+		//at this point we are 'in' an empty node pointed to by prev, init new node with value
 		if(is_left)
 			prev->left=new_node(value);
 		else
@@ -82,8 +82,57 @@ int insert(node *root,int value){
 	}//end else	
 }
 
-int delete(node *root, int value, comparer compare){
-	
+int remove(node *root, int value){
+	//CASE 1: single node tree
+	if(isLeaf(root))
+		if(root->info==value)
+			root=NULL;
+	//CASE 2: mature tree
+	else{
+		int is_left=0;
+		node* p = root;
+		node* prev = NULL;
+
+		//walk the tree
+		while(p!=NULL && p->info != value){
+			prev=p;
+			if(value < p->info){
+				is_left=1;
+				p=p->left;
+			}
+			else{
+				is_left=0;
+				p=p->right;
+			}
+
+		//value exists in tree
+		if(p->info == value){
+			//CASE 2.1: value's node is a leaf
+			if(isLeaf(p)){
+				p=NULL
+			}
+			//CASE 2.2: right child exists
+			else if(p->left==NULL && p->right!=NULL){
+				if(is_left)
+					prev->left=p->right;
+				else
+					prev->right=p->right;
+			}
+			//CASE 2.3: left child exists			
+			else if(p->left!=NULL && p->right==NULL){
+				if(is_left)
+					prev->left=p->left;
+				else
+					prev->right=p->left;
+			}
+			//CASE 2.2: both children exist			
+			else if(p->left!=NULL && p->right!=NULL){
+			//TODO smallest node in right subtree, or largest node in left subtree? i forget, draw it but sleep first !!
+			}
+		}
+		}//end while
+
+	}
 }
 node* new_node(int value){
 	node *new_node=(node*)malloc(sizeof(node));
