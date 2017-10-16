@@ -125,7 +125,7 @@ int remove(node *root, int value){
 				else
 					prev->right=p->left;
 			}
-			//CASE 2.2: both children exist			
+			//CASE 2.4: both children exist			
 			else if(p->left!=NULL && p->right!=NULL){
 			//TODO smallest node in right subtree, or largest node in left subtree? i forget, draw it but sleep first !!
 			}
