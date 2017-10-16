@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- HackThisSite.org
+     programming challenge 4 -->
+<!-- default color is white -->
+<ppcPlot
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation=
+  "http://www.hackthissite.org/....../plotMe.xsd">
+  <Line>
+    <Color>red</Color>
+    <XEnd>500</XEnd>
+    <XStart>100</XStart>
+    <YStart>200</YStart>
+    <YEnd>800</YEnd>
+  </Line>
+  <Arc>
+    <Color>blue</Color>
+    <XCenter>600</XCenter>
+    <Radius>200</Radius>
+    <ArcStart>10</ArcStart>
+    <YCenter>600</YCenter>
+    <ArcExtend>80</ArcExtend>
+  </Arc>
+</ppcPlot>
