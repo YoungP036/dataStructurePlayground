@@ -18,18 +18,12 @@ import string
 import hashlib
 
 def main():
-    characters=list(string.ascii_uppercase + string.digits)
+    chars=list(string.ascii_uppercase + string.digits)
     hex=list(string.digits + 'A' + 'B' + 'C' + 'D' + 'E' + 'F')
 
     input=raw_input("Enter hash:\n>>")
     input_list=input.split(' ')
-    # print(get_md5_hash(input))
-    # print(known_chars(7))
-    # print(known_chars(8))
-    # print(known_chars(9))
-    # print(known_chars(10))
-    # print(known_chars(11))
-    # print(base16_sum(get_md5_hash(input)))
+
 def get_md5_hash(str_in):
     hash_engine=hashlib.md5()
     hash_engine.update(str(str_in))
@@ -65,6 +59,23 @@ def base16_sum(input):
     for item in input_list:
         sum+=int(item,16) #compute in base 16
     return sum
+
+def total(msg,pass,prev,iter):
+    if iter==0:
+        intTotal=ord(str(msg)[0:1]-int(input_list[iter])+int(pass,16)
+        return intTotal
+    else:
+        return Sum(str(MD5_Hash(msg[:(iter+1)]))[0:16]+str(MD5_Hash(prev))[0:16]
+
+def find():
+    for j in range(len(hex)):
+        for i in range(len(chars)):
+            if(((ord(chars[i])+int(hex[j],16)-Total(characters[i], hex[j],0,0)== int(input_list[0]))):
+                total= Total(chars[i],hex[j],Total(chars[i],hex[j],0,0),1)
+                if getHash(chars[i],1,str(hex[j]),total) != "0"):
+                    return 1
+    return 0
+
 
 if __name__ == "__main__":
     main()
